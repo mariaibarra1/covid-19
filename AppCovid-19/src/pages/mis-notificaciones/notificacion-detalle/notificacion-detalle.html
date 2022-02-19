@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="primary">Notificación</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="notificacion">
+    <div class="info fecha" float-right>{{notificacion.fecha | date : "dd/MM/y h:mm a"}}</div>
+    <br><br>
+    <div text-center>
+      <h3>{{notificacion.titulo}}</h3>
+    </div>
+
+    {{notificacion.descripcion}}
+  </div>
+</ion-content>

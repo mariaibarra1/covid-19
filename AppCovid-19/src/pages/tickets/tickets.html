@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title text-center color="primary">{{categoria}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="contenidoCargado == false" text-center>
+    <br><br><br><br>
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div *ngIf="contenidoCargado == true" text-center>
+    <ion-slides pager="false" class="swiper-largo">
+      <ion-slide>
+        <ion-row *ngFor="let preguntas of ListPreguntasYRespuestas">
+          <ion-col>
+
+
+            <ion-item>
+              <ion-label> {{preguntas.pregunta.descripcionPregunta}}</ion-label>
+
+              <span *ngIf="preguntas.pregunta.descripcionPregunta.toLowerCase() == 'temperatura'" class="rangos"
+                item-left>36°</span>
+              <span *ngIf="preguntas.pregunta.descripcionPregunta.toLowerCase() == 'temperatura'" class="rangos"
+                item-right>+39°</span>
+
+              <span *ngIf="preguntas.pregunta.descripcionPregunta.toLowerCase() != 'temperatura'" class="rangos"
+                item-left>{{findMin(preguntas.opciones)}}</span>
+              <span *ngIf="preguntas.pregunta.descripcionPregunta.toLowerCase() != 'temperatura'" class="rangos"
+                item-right>{{findMax(preguntas.opciones)}}</span>
+
+              <span class="respuesta" item-right>{{preguntas.nombreRespuesta}}</span>
+              <ion-range [min]="findMin(preguntas.opciones)" [max]="findMax(preguntas.opciones)"
+                [step]="getStep(preguntas.opciones)"
+                (ionChange)="agregaRespuesta($event, preguntas.pregunta.idPregunta)">
+              </ion-range>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button block type="submit" (click)="submitEncuesta()">Ver resultados</button>
+          </ion-col>
+        </ion-row>
+      </ion-slide>
+      <ion-slide class="slide-largo">
+
+      </ion-slide>
+      <ion-slide>
+        <h1>Slide 3</h1>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+</ion-content>

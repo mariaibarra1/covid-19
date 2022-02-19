@@ -1,0 +1,195 @@
+@import "../theme/variables.scss";
+
+// Acomodo de IOS, cuando compilamos en IOS de modo móvil se mueve todo alv, este es el fix >:( si estás leyendo esto te odio. xD
+//---------------------------------------------------------------------------------------------------------------------
+
+ion-app {
+    margin-top: env(safe-area-inset-top);
+    margin-bottom: env(safe-area-inset-bottom);
+}
+
+.platform-iphone {
+
+  .scroll-content{
+    padding-top: 0px !important;
+  }
+
+  .IOS-status{
+    position: absolute;
+    padding-top: 28px;
+    font-size: 10px;
+  }
+
+  .tabbar{
+    bottom: 20px !important;
+  }
+
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Elementos generales.
+ion-select {
+  max-width: 100% !important;
+  border: 1px solid #bce0fd;
+}
+
+ion-input {
+  border: 1px solid #bce0fd;
+}
+
+button{
+  border-radius: 4.343px !important;
+}
+
+.picker-wrapper{
+  background-color: white !important;
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Ayudas texto bonito.
+.capitalizar *:not(button){
+  text-transform: capitalize;
+}
+
+.capitalizar{
+  text-transform: capitalize;
+}
+
+.primeraLetraMayuscula::first-letter{
+  text-transform: capitalize;
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Colores PMS
+
+.color-resultado-bajo{
+  color: #00bfa8;
+}
+
+.color-resultado-moderado{
+  color: #ded716;
+}
+
+.color-resultado-alto{
+  color: #faab6e;
+}
+
+.color-resultado-muy-alto{
+  color: #fa6e6e;
+}
+
+.color-menu-fondo{
+  color: #f2f2f2;
+}
+
+.color-geolocalizacion-rojo{
+  color: #ef463b;
+}
+
+.color-geolocalizacion-azul{
+  color: #007feb;
+}
+
+.color-linea-azul{
+  color: #bce0fd
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Colores Personales
+
+.info{
+  color: rgb(167, 167, 167);
+}
+
+.correcto{
+  color: rgb(27, 228, 27);
+}
+
+.error{
+  color: red;
+}
+
+
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Iconos PMS
+ion-icon {
+   &[class*="custom-"] {
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 1em;
+      height: 1em;
+  }
+
+    &[class*="custom-alertas"] {
+      mask-image: url(../assets/icon/alertas.svg);
+    }
+
+    &[class*="custom-ciudadano"] {
+      mask-image: url(../assets/icon/ciudadano.svg);
+    }
+
+    &[class*="custom-continuar"] {
+      mask-image: url(../assets/icon/continuar.svg);
+    }
+
+    &[class*="custom-geoloc"] {
+      mask-image: url(../assets/icon/geoloc.svg);
+    }
+
+    &[class*="custom-inicio"] {
+      mask-image: url(../assets/icon/inicio.svg);
+    }
+
+    &[class*="custom-mi_estado"] {
+      mask-image: url(../assets/icon/mi_estado.svg);
+    }
+
+    &[class*="custom-noticias"] {
+      mask-image: url(../assets/icon/noticias.svg);
+    }
+
+    &[class*="custom-notificacion"] {
+      mask-image: url(../assets/icon/notificacion.svg);
+    }
+
+    &[class*="custom-regresar"] {
+      mask-image: url(../assets/icon/regresar.svg);
+    }
+
+    &[class*="custom-r_alto"] {
+      mask-image: url(../assets/icon/r_alto.svg);
+    }
+
+    &[class*="custom-r_bajo"] {
+      mask-image: url(../assets/icon/r_bajo.svg);
+    }
+
+    &[class*="custom-r_moderado"] {
+      mask-image: url(../assets/icon/r_moderado.svg);
+    }
+
+    &[class*="custom-r_muy_alto"] {
+      mask-image: url(../assets/icon/r_muy_alto.svg);
+    }
+
+    &[class*="custom-r_us_no"] {
+      mask-image: url(../assets/icon/r_us_no.svg);
+    }
+
+    &[class*="custom-r_us_si"] {
+      mask-image: url(../assets/icon/r_us_si.svg);
+    }
+
+    &[class*="custom-virus"] {
+      mask-image: url(../assets/icon/virus.svg);
+    }
+
+}
+
+

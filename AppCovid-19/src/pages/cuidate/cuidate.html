@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title color="primary">Cuídate México</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Cuídate
+  México
+   -->
+  <div text-center>
+    <ion-icon id="startButton" name="custom-cuidate"></ion-icon>
+  </div>
+  <p>
+    <b>
+      Bienvenido a nuestro servicio de cuidado médico
+      y orientación de salud ciudadana.</b>
+    <br><br>
+    Si consideras que podrías haber estado
+    expuesto al <b>COVID-19</b> , contesta estas
+    sencillas preguntas para ayudarte a recibir la
+    más adecuada <b>atención médica</b>.
+    <br><br>
+    <b>
+      El uso de la solución requiere de unos datos
+      mínimos para poder asesorarle de la mejor
+      manera, sin embargo puede estar tranquilo
+      porque la aplicación respeta siempre su
+      anonimato.
+    </b>
+  </p>
+
+
+  <div padding bottom>
+    <button ion-button block (click)="comenzar()">Comenzar la prueba</button>
+  </div>
+  <div class="info" (click)="pantallaLogin()" text-center>
+    Ya tengo cuenta
+  </div>
+</ion-content>

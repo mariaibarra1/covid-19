@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title color="primary">Tu Resultado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="contenidoCargado == false" text-center>
+    <br><br>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="contenidoCargado == true" text-center>
+    <ion-card *ngFor="let item of avisos">
+
+      <ion-card-content>
+        <div *ngFor="let tema of item;let index = index">
+          <h3 *ngIf="index==0">{{tema.descripcion}}<br><br></h3>
+          <!-- <ion-icon *ngIf="index==0" name="custom-ciudadano"></ion-icon> -->
+          <div text-center>
+            <img *ngIf="index==0" [src]="icon" style="width: 60px; height: 60px;" class="centerImg">
+          </div>
+          <br>
+          <h4 *ngIf="index==0">{{tema.contenido}}<br><br></h4>
+          <p>
+            {{tema.subTema}}
+          </p>
+          <br>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <div *ngIf="editarUbicacion">
+      <form [formGroup]="ticketsForm" class="formTickets" (ngSubmit)="submitDatosUsuario(ticketsForm.value)">
+        <p>
+          Para darte seguimiento y servicio médico
+          <br>
+          correcto, necesitamos que ingreses la
+          <br>
+          siguiente informacion
+        </p>
+        <ion-label class="lblJustify">Dirección</ion-label>
+        <ion-textarea [value]="address" rows="6" disabled readonly>
+        </ion-textarea>
+        <div class="mapaClass">
+          <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+              (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
+        </div>
+        <p>Los campos marcados con * son obligatorios</p>
+
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <ion-label class="lblJustify">Calle</ion-label>
+            <ion-input type="text" placeholder="Calle" [value]="calle" formControlName="calle">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <ion-label class="lblJustify">Número</ion-label>
+            <ion-input type="text" placeholder="Número exterior" [value]="numeroExterior"
+              formControlName="numeroExterior">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <ion-label class="lblJustify">Colonia</ion-label>
+            <ion-input type="text" placeholder="colonia" [value]="colonia" formControlName="colonia">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <ion-label class="lblJustify">Número telefónico</ion-label>
+            <ion-input type="number" maxlength="15" placeholder="Teléfono  *" formControlName="numeroTelefonico">
+            </ion-input>
+          </ion-col>
+          <p *ngIf="this.ticketsForm.controls.numeroTelefonico.status == 'INVALID' " class="error">El número de teléfono
+            es requerido.</p>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <ion-label class="lblJustify">Nombre completo</ion-label>
+            <ion-input formControlName="nombre" type="text" placeholder="Nombre completo *"></ion-input>
+          </ion-col>
+          <p *ngIf="this.ticketsForm.controls.nombre.status == 'INVALID' " class="error">El nombre es requerido.</p>
+        </ion-row>
+        <hr>
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <!-- <ion-input formControlName="anionacimiento" type="tel" maxlength="4" placeholder="Fecha nacimiento">
+            </ion-input> -->
+            <ion-label class="lblJustify" position="stacked">Fecha de nacimiento</ion-label>
+            <ion-datetime display-timezone="utc" formControlName="fechaNacimiento" placeholder="Seleccion una fecha">
+            </ion-datetime>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <ion-input formControlName="cpostal" type="tel" maxlength="5" placeholder="Código Postal">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 class="colLeft">
+            <ion-select class="selector" formControlName="genero" placeholder="Género">
+              <ion-option class="option" *ngFor="let genero of generos" [value]="genero.id">{{genero.valor}}
+              </ion-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+
+
+
+        <hr>
+
+        <p>Tu correo electrónico será tu usuario y el medio por el que nos mantendremos en contacto contigo
+        </p>
+
+        <ion-row>
+          <ion-input formControlName="email" type="email" placeholder="Correo*" inputmode="email"></ion-input>
+        </ion-row>
+        <p class="error">{{mensajeCorreoValidacion}}</p>
+        <p *ngIf="this.ticketsForm.controls.email.status == 'INVALID' " class="error">El correo electrónico es
+          requerido.</p>
+        <br>
+
+        <ion-row>
+          <ion-input formControlName="password" type="password" placeholder="Contraseña*" (blur)="showInfoPass(false);"
+            (focus)="showInfoPass(true);">
+          </ion-input>
+          <p *ngIf="infoPass">La contraseña debe contener al menos 8
+            caracteres, 1
+            número, 1 mayúscula, 1 minúscula y 1 caracter especial.</p>
+
+          <p *ngIf="this.ticketsForm.controls.password.status == 'INVALID' && this.ticketsForm.controls.password.value != '' && !infoPass"
+            class="error">La contraseña debe contener al menos 8
+            caracteres, 1
+            número, 1 mayúscula, 1 minúscula y 1 caracter especial.</p>
+
+        </ion-row>
+        <br>
+        <ion-row>
+          <ion-input formControlName="passwordConfirm" type="password" placeholder="Confirmar contraseña*"></ion-input>
+        </ion-row>
+        <p style="color:red !important" *ngIf="ticketsForm.value.password!=ticketsForm.value.passwordConfirm">Las
+          contraseñas no
+          coinciden</p>
+
+        <div padding>
+          <button ion-button block type="submit"
+            [disabled]="!ticketsForm.valid|| ticketsForm.value.password!=ticketsForm.value.passwordConfirm ">Actualizar
+            Datos</button>
+        </div>
+
+
+      </form>
+    </div>
+
+    <div padding bottom>
+      <button ion-button block (click)="regresar()">Volver al inicio</button>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,52 @@
+$font-path: "../assets/fonts";
+$app-direction: ltr;
+
+:root{
+  --ion-color-oscuro: #3b444d;
+  --ion-color-oscuro-rgb: 59,68,77;
+  --ion-color-oscuro-contrast: #ffffff;
+  --ion-color-oscuro-contrast-rgb: 255,255,255;
+  --ion-color-oscuro-shade: #343c44;
+  --ion-color-oscuro-tint: #4f575f;
+}
+
+@import "ionic.globals";
+$colors: ( 
+        primary: #007e82,
+        secondary: #32db64, 
+        danger: #f53d3d, 
+        light: #f4f4f4, 
+        dark: #222, 
+        textgray: #BABDC6
+);
+
+$app-background: white;
+
+// Toolbar
+$toolbar-background: white;
+$toolbar-md-title-text-color:#007e82;
+$toolbar-ios-title-text-color: #007e82;
+$toolbar-wp-title-text-color:#007e82;
+
+// Menu
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon, .tabs-md .tab-button[aria-selected=true] .tab-button-text {
+  color: #0ba1bb !important;
+}
+
+.tabs-md .tab-button[aria-selected=false] .tab-button-icon, .tabs-md .tab-button[aria-selected=false] .tab-button-text {
+  color: #b2b2b2 !important;
+}
+
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon, .tabs-ios .tab-button[aria-selected=true] .tab-button-text {
+  color: #0ba1bb !important;
+}
+
+.tabs-ios .tab-button[aria-selected=false] .tab-button-icon, .tabs-ios .tab-button[aria-selected=false] .tab-button-text {
+  color: #b2b2b2 !important;
+}
+
+@import "ionic.theme.default";
+@import "ionic.ionicons";
+@import "roboto";
+@import "noto-sans";
+

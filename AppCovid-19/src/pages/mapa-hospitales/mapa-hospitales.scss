@@ -1,0 +1,22 @@
+page-mapa-hospitales {
+    google-map {
+        #map{
+            width: 100% ;
+            height: 100% ;
+
+        }
+    }
+
+    ion-card { 
+        #cards{ 
+            position: absolute  !important;
+            z-index: 10000 !important;
+        }
+    }
+  .botonNavegar{
+        width: 65px;
+        height: 25px;
+        font-size: 9px;
+    }
+
+}

@@ -1,0 +1,7 @@
+{
+  "name": "CuidateMexico",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Aviso</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div tex-center>
+    <p class="fecha info">{{comentario.fecha | date: (shortdate)}}</p>
+  </div>
+  <div>
+    {{comentario.comentario}}
+  </div>
+</ion-content>

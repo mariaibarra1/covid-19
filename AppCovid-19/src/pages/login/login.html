@@ -1,0 +1,35 @@
+<ion-content padding>
+
+  <br><br><br><br><br>
+  <div text-center>
+    <img src="assets/imgs/logo.png" (click)="hackLocalizacion()">
+  </div>
+  <br><br>
+  <form [formGroup]="myForm" class="formLogin">
+
+    <ion-item (click)="email.setFocus()">
+      <ion-icon name="mail" item-left></ion-icon>
+      <ion-label stacked>Email:</ion-label>
+      <ion-input #email formControlName="email" type="email" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock" item-left></ion-icon>
+      <ion-label stacked>Password:</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+
+    <div *ngIf="mensajeError != null" class="error" text-center>{{mensajeError}}</div>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="login()">Ingresar</button>
+    </div>
+  </form>
+  <div text-center>
+    <a ion-button block clear (click)="restablecerContrasenia()">
+      Olvidé mi contraseña
+    </a>
+    <a ion-button block clear (click)="primerEncuesta()">
+      Es mi primer encuesta
+    </a>
+  </div>
+</ion-content>

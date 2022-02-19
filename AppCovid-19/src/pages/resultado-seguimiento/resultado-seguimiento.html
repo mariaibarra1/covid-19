@@ -1,0 +1,250 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title color="primary">Tu Resultado</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-card *ngIf="contenidoModerado">
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content>
+        <div text-center>
+          <h3>
+            <b>Para tu tranquilidad un profesional de la salud
+              estará dando seguimiento a tu caso,</b><br>
+            para ello te acabamos de mandar un código de
+            seguimiento a tu celular:<br>
+            <b>{{numeroTelefono}}</b>
+            <br>
+          </h3>
+          <h4>Para más tranquilidad te solicitamos anotar el <br>
+            código de seguimiento para que te asesoremos<br>
+            de la mejor manera.<br></h4>
+          <b>{{folioTicket}}</b><br>
+          <div text-center>
+            <img [src]="icon" style="width: 60px; height: 60px;" class="centerImg">
+          </div>
+          <br>
+          <h3>
+            Debes permanecer sin salir
+            de casa durante 14 días
+          </h3>
+          <br>
+          <p>
+            Debes de <b>detener las actividades</b> que
+            realizas habitualmente fuera de tu
+            domicilio, por que puedes desarrollar la
+            enfermedad y por lo tanto transmitirla a
+            otras personas.
+          </p>
+          <br>
+          <p>
+            <b>
+              Mientras tanto en la cuarentena no
+              olvides cumplir las actuales medidas de
+              protección:</b>
+          </p>
+          <br>
+          <p>
+            <b>Lavate las manos</b> frecuentemente con
+            abundante agua y jabón o con
+            desinfectante a base de alcohol al 70%.
+          </p>
+          <br>
+          <p>
+            <b>Cubre tu boca y nariz al estornudar o toser</b>
+            utilizando la parte inferior de tu codo o un
+            pañuelo desechable que deberías eliminar
+            inmediatamente.
+
+          </p>
+          <br>
+          <p>
+            <b>Evita saludar de beso, mano o abrazo.</b> De
+            igual manera, evita el contacto con otras
+            personas que presenten síntomas
+            respiratorios como tos o fiebre.
+          </p>
+          <br>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card *ngIf="contenidoAlto">
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content>
+        <div text-center>
+          <h3>
+            <b>Para tu tranquilidad un profesional de la salud
+              estará dando seguimiento a tu caso,</b><br>
+            para ello te acabamos de mandar un código de
+            seguimiento a tu celular:<br>
+            <b>{{numeroTelefono}}</b>
+            <br>
+          </h3>
+          <h4>Para más tranquilidad te solicitamos anotar el <br>
+            código de seguimiento para que te asesoremos<br>
+            de la mejor manera.<br></h4>
+          <b>{{folioTicket}}</b><br>
+
+          <div text-center>
+            <img [src]="icon" style="width: 60px; height: 60px;" class="centerImg">
+          </div>
+          <br>
+          <h2>
+            En menos de 3 horas un
+            profesional de la salud va a
+            contactar contigo.
+          </h2>
+          <br>
+          <p>
+            <b>
+              {{LoggedUser.nombre}}, en breve contactarán
+              contigo para que te evaluen y te atiendan
+              de manera personal.
+            </b>
+          </p>
+          <br>
+          <p>
+            Tus síntomas coinciden con los de
+            COVID-19, por eso es necesario que te
+            asista un médico de manera remota para
+            evaluar las siguientes acciones
+            necesarias.
+
+          </p>
+          <br>
+          <p>
+            <b>
+              Manten la calma, más del 80% de los
+              casos detectados no requieren
+              hospitalización y se recuperan en casa.
+            </b>
+          </p>
+          <br>
+          <p>
+            <b>
+              No
+              olvides cumplir las actuales medidas de
+              protección:</b>
+          </p>
+          <br>
+          <p>
+            <b>Lavate las manos</b> frecuentemente con
+            abundante agua y jabón o con
+            desinfectante a base de alcohol al 70%.
+          </p>
+          <br>
+          <p>
+            <b>Cubre tu boca y nariz al estornudar o toser</b>
+            utilizando la parte inferior de tu codo o un
+            pañuelo desechable que deberías eliminar
+            inmediatamente.
+
+          </p>
+          <br>
+          <p>
+            <b>Evita saludar de beso, mano o abrazo.</b> De
+            igual manera, evita el contacto con otras
+            personas que presenten síntomas
+            respiratorios como tos o fiebre.
+          </p>
+          <br>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="contenidoMuyAlto">
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content>
+        <div text-center>
+          <h3>
+            <b>Para tu tranquilidad un profesional de la salud
+              estará dando seguimiento a tu caso,</b><br>
+            para ello te acabamos de mandar un código de
+            seguimiento a tu celular:<br>
+            <b>{{numeroTelefono}}</b>
+            <br>
+          </h3>
+          <h4>Para más tranquilidad te solicitamos anotar el <br>
+            código de seguimiento para que te asesoremos<br>
+            de la mejor manera.<br></h4>
+          <b>{{folioTicket}}</b><br>
+
+          <div text-center>
+            <img [src]="icon" style="width: 60px; height: 60px;" class="centerImg">
+          </div>
+          <br>
+          <h2>
+            En menos de 3 horas un
+            profesional de la salud va a
+            contactar contigo.
+          </h2>
+          <br>
+          <p>
+            <b>
+              {{LoggedUser.nombre}}, en breve contactarán
+              contigo para que te evaluen y te atiendan
+              de manera personal.
+            </b>
+          </p>
+          <br>
+          <p>
+            Tus síntomas coinciden con los de
+            COVID-19, por eso es necesario que te
+            asista un médico de manera remota para
+            evaluar las siguientes acciones
+            necesarias.
+
+          </p>
+          <br>
+          <p>
+            <b>
+              Manten la calma, más del 80% de los
+              casos detectados no requieren
+              hospitalización y se recuperan en casa.
+            </b>
+          </p>
+          <br>
+          <p>
+            <b>
+              No
+              olvides cumplir las actuales medidas de
+              protección:</b>
+          </p>
+          <br>
+          <p>
+            <b>Lava tus manos</b> frecuentemente con
+            abundante agua y jabón o con
+            desinfectante a base de alcohol al 70%.
+          </p>
+          <br>
+          <p>
+            <b>Cubre tu boca y nariz al estornudar o toser</b>
+            utilizando la parte inferior de tu codo o un
+            pañuelo desechable que deberías eliminar
+            inmediatamente.
+
+          </p>
+          <br>
+          <p>
+            <b>Evita saludar de beso, mano o abrazo.</b> De
+            igual manera, evita el contacto con otras
+            personas que presenten síntomas
+            respiratorios como tos o fiebre.
+          </p>
+          <br>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <div padding bottom>
+      <button ion-button block (click)="regresar()">Volver al inicio</button>
+    </div>
+
+  </div>
+
+</ion-content>

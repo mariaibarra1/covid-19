@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title text-center color="primary">Comienza tu revisión</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="slidesClass">
+    <ion-slides *ngIf="sliderLoaded" [autoplay]="3000" loop="true" speed="300" (ionSlideDidChange)="slideChanged()">
+      <!-- <ion-slide *ngIf="BannerRowValues!=null">
+      <ion-row class="rowImg" text-center>
+        <ion-col col-12 col-md-6 offset-md-3 col-sm-8 offset-sm-2>
+          <h1>hola</h1>
+        </ion-col>
+      </ion-row>
+    </ion-slide> -->
+      <ion-slide *ngFor="let bn of BannerRowValues">
+        <ion-row class="rowImg" text-center>
+          <ion-col col-12>
+            <!-- <ion-img src="{{'data:'+bn.tipo+';base64,'+bn.base64}}" class="imgResp"></ion-img> -->
+            <img [src]="'data:'+bn.tipo+';base64,'+bn.base64" class="imgResp">
+          </ion-col>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <!-- <div class="divisorClass"></div> -->
+
+  <div *ngIf="contenidoCargado == false" text-center>
+    <br><br>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="contenidoCargado == true" text-center padding>
+    <div *ngIf="tieneEncuestasRegistradas">
+
+      <div *ngFor="let item of avisos">
+
+        <div>
+          <div *ngFor="let tema of item;let index = index">
+            <p *ngIf="index==0">{{LoggedUser.nombre}}, {{tema.descripcion}}<br><br></p>
+            <!-- <ion-icon *ngIf="index==0" name="custom-ciudadano"></ion-icon> -->
+            <div text-center>
+              <img *ngIf="index==0" [src]="icon" class="centerImg" style="width: 50px; height: 50px;">
+            </div>
+            <br>
+            <div *ngIf="index==0">
+              <p><b>VALIDADO:</b></p>
+              <h3><b>{{fechaActualizacion}}</b></h3>
+              <p>Código de seguimiento:</p>
+              <h3><b>{{folioTicket}}</b></h3>
+
+              <div padding bottom *ngIf="ActualizaEncuesta">
+                <button ion-button block (click)="sendEncuesta()">ACTUALIZAR TU PRUEBA</button>
+              </div>
+              <div padding bottom *ngIf="ComplementaEncuesta">
+                <button ion-button block (click)="sendEncuesta()">COMPLEMENTA TU PRUEBA</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!tieneEncuestasRegistradas">
+      <div>
+        <p>{{LoggedUser.nombre}} <br><br></p>
+        <!-- <ion-icon *ngIf="index==0" name="custom-ciudadano"></ion-icon> -->
+        <div text-center>
+
+        </div>
+        <br>
+        <div>
+          <p><b>No has contestado la Prueba de salud:</b></p>
+          <p><b>Contesta la prueba para ver tus resultados</b></p>
+
+          <div padding bottom>
+            <button ion-button block (click)="iniciaEncuesta()">EMPEZAR LA PRUEBA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

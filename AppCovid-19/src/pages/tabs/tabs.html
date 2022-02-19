@@ -1,0 +1,13 @@
+<notificaciones float-right (click)="testNotificacion()"></notificaciones>
+<ion-tabs *ngIf="tabs" name="tabs">
+  <!-- <ion-tab [root]="tabCategorias" tabTitle="Inicio" tabIcon="custom-inicio"></ion-tab>
+  <ion-tab [root]="tabEstado" tabTitle="Mi Estado" tabIcon="custom-mi_estado"> </ion-tab>
+  <ion-tab [root]="tabAvisos" tabTitle="Noticias" tabIcon="custom-noticias"></ion-tab>
+  <ion-tab [root]="tabComentarios" tabTitle="Avisos" tabIcon="ios-paper"></ion-tab>
+  <ion-tab [root]="tabMapaHospitales" tabTitle="Hospitales" tabIcon="md-medkit"></ion-tab>
+  <ion-tab [root]="tabMiCuenta" tabTitle="Ajustes" tabIcon="md-cog"> </ion-tab> -->
+  <ion-tab *ngFor="let tab of tabs" [root]="tab.paginaDestino" [tabTitle]="tab.titulo | titlecase"
+    [tabIcon]="tab.icono">
+  </ion-tab>
+  <!-- <ion-tab [root]="tabMiCuenta" tabTitle="Ajustes" tabIcon="md-cog"> </ion-tab> -->
+</ion-tabs>

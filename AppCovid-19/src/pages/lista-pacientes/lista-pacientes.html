@@ -1,0 +1,49 @@
+<!--
+  Generated template for the ListaPacientesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pacientes Asociados</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <div *ngIf="cargandocontenido" text-center>
+    <br><br>
+    <ion-spinner></ion-spinner>
+  </div>
+  <ion-list>
+    <ion-card *ngFor="let item of listaPacientes">
+      <ion-card-content>
+        <!-- <ion-avatar>
+          <ion-icon name="custom-mi_estado"></ion-icon>
+        </ion-avatar> -->
+        <p>
+          Nombre del paciente:<br>
+          <b>{{item.nombreUsuario}}</b>
+        </p>
+        <p>
+          Folio de seguimiento:<b float-right>{{item.folio}}</b>
+        </p>
+        <div padding bottom>
+          <button ion-button block (click)="detalle(item)">Ver información</button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <div *ngIf="cargandocontenido" text-center>
+      <div *ngIf="listaPacientes.length==0 && !cargandocontenido  ">
+        <p>
+          Sin pacientes asociados
+        </p>
+      </div>
+
+    </div>
+
+  </ion-list>
+</ion-content>

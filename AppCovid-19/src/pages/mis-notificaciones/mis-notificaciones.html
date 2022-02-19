@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Notificaciones</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-refresher (ionRefresh)="refrescarNotificaciones($event)">
+      <ion-refresher-content> </ion-refresher-content>
+    </ion-refresher>
+
+    <div *ngIf="notificaciones == null || notificaciones.length == 0" class="info" text-center>
+      <br>
+      No tiene notificaciones.
+    </div>
+
+    <ion-item *ngFor="let notificacion of notificaciones"
+      [ngClass]="{'noLeidas': notificacion.notificacion_visto == false}" text-wrap
+      (click)="detalleNotificacion(notificacion)">
+      <ion-icon name="custom-noticias" item-left></ion-icon>
+      <div class="primeraLetraMayuscula">
+        <b>{{notificacion.titulo}}</b>
+      </div>
+      {{notificacion.descripcion.length >= 60? notificacion.descripcion.substring(0, 60) + '...': notificacion.descripcion}}
+      <br>
+      <p class="info fecha">{{notificacion.fecha | date : "dd/MM/y h:mm a"}}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

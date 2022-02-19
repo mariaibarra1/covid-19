@@ -1,0 +1,40 @@
+notificaciones {
+
+    .contenedorNotificaciones{
+
+        .botonNotificaciones{
+            position: relative;
+            top: 7px;
+            right: 10px;
+            z-index: 1;
+            zoom: 1.70;  
+            width: 0.9em;
+            height:  0.9em;          
+        }
+    
+        .numeroNotificacion{
+            width: 15px;
+            height: 15px;
+            font-size: 10px;
+            position: relative;
+            border-style: solid;
+            border-width: thin;
+            border-color: white;
+            border-radius: 50%;
+            background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0px auto;
+            font-family: sans-serif;
+            color: white;
+            font-weight: bold;
+            z-index: 3;
+            right: 13px;
+            top: 14px;
+            margin-right: 0px;
+            margin-bottom: -10px;
+        }
+    }
+}

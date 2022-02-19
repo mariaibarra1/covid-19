@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Ver información</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <img [src]="icon" class="centerImg">
+
+  <ion-label class="lblCenter">
+    Nivel de riesgo: <b>{{detallePaciente.nombreCaso}}</b>
+  </ion-label>
+  <div class="info" text-center>
+    Datos del paciente
+  </div>
+  <p>
+    Nombre:<b float-right> {{detallePaciente.nombreUsuario}}</b>
+  </p>
+  <p>
+    Folio:<b float-right>{{detallePaciente.folio}}</b>
+  </p>
+  <br>
+  <div class="info" text-center>
+    Datos del hospital asignado
+  </div>
+  <p>
+    Nombre:<b float-right> {{detallePaciente.nombreHospital}}</b>
+  </p>
+  <p>
+    Descripcion:<b float-right> {{detallePaciente.descripcionHospital}}</b>
+  </p>
+</ion-content>

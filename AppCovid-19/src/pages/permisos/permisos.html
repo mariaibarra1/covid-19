@@ -1,0 +1,18 @@
+<ion-content padding text-center>
+
+  <ion-refresher (ionRefresh)="pedirPermisosNuevamente($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="contenidoCargado == false" text-center>
+    <br><br><br><br><br><br>
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div *ngIf="contenidoCargado == true" class="info" text-center text-wrap>
+    <br><br><br><br><br><br>
+    <div *ngIf="geolocalizacion == null">
+      Está aplicación requiere de su geolocalización para su funcionamiento.
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,162 @@
+page-encuesta-actualizar {
+    form{
+        padding:5px; 
+      }
+    
+      agm-map {
+        height: 300px;
+      }
+    
+      .mapaClass{
+        border: gray 1px solid;
+        border-radius: 5px;
+      }
+    
+      .swiper-largo {
+        //display: flex;
+        overflow: auto !important;
+        height: auto !important;
+    }
+      .slide-largo{
+        //display: flex !important;
+        //overflow-y: scroll !important;
+    }
+      ion-select {
+        max-width: 100% !important;
+        background-color: map-get($colors, "inputback") !important;
+        color:white;
+        height: 100% !important;
+        border-radius: 5px;
+        position: relative;
+        vertical-align: middle !important;
+      }
+    
+    
+    
+      ion-item, .item-inner{
+        margin: 0 !important;
+        padding: 0 !important;
+        //border: none !important;
+      }
+    
+      ion-input, .inputMapClass{
+        margin-top: 10px;
+        width: 100% !important;
+        height: 40px;
+        background-color: white;//map-get($colors, "inputback") !important;
+        color:black;
+        border-radius: 3px;
+        position: relative;
+        vertical-align: middle !important;
+        border: map-get($colors, "inputback") 1px solid;
+      }
+    
+      ion-textarea{
+        margin-top: 10px;
+        width: 100% !important;
+        height: 100px;
+        background-color: white;// map-get($colors, "inputback") !important;
+        color:black !important;
+        border-radius: 3px;
+        border: map-get($colors, "inputback") 1px solid;
+      }
+    
+      ion-input, ion-textarea, .inputMapClass{
+        padding-left: 10px;
+      }
+    
+      .lblClass{
+        margin-top: 10px;
+        width: 100% !important;
+        height: 40px;
+        background-color: map-get($colors, "inputback") !important;
+        color:white !important;
+        border-radius: 5px;
+        padding: 10px;
+        border: map-get($colors, "inputback") 1px solid;
+      }
+    
+      .rowClass{
+        background-color: map-get($colors , 'inputback' );
+        border: gray 1px solid;
+        border-radius: 3px;
+    
+        button{
+          padding: 5px;
+          background-color: map-get($colors,'primary' ) !important;
+          float: right;
+          border-radius: 2px;
+        }
+      }
+    
+      .formTickets{
+        ion-fab{
+          margin-right: 8px;
+          margin-bottom: 15px;
+          position: relative;
+          float: right;
+        }
+        ion-icon{
+          color:map-get($colors, "fondo") !important;
+        }
+      }
+    
+      .search{
+        padding: 0;
+        margin-top: 5px;
+      }
+    
+      .subServClass{
+        background-color: map-get($colors , 'inputback' );
+       // border: gray 1px solid;
+        border-radius: 3px;
+        margin: 0 5px;
+        padding: 5px 0;
+    
+        .subServSelectName{
+          color: white;
+        }
+    
+        button{
+           float: right;
+          margin-right: 2px;
+          background-color: transparent;
+           
+          ion-icon{
+            color:white !important;
+          }
+        }
+      }
+    
+      .listLocation{
+        float: left;
+        overflow: hidden !important;
+    
+        .input-wrapper{
+          background-color: white;
+          color: black !important;
+          font-size: 12px;
+          line-height: 6px;
+    
+    
+          ion-icon{
+            margin-left: 3px;;
+            color: lightgray !important;
+          }
+        }
+      }
+    
+      .rangos{
+        font-size: 10px;
+        margin-bottom: -30px !important
+      }
+    
+      .respuesta{
+        font-weight: bold;
+        font-size: 100%;
+        position: absolute;
+        right: 15px;
+        bottom: 40px;
+      }
+    
+}

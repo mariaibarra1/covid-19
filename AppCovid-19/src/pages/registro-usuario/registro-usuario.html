@@ -1,0 +1,235 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Regístrate</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="myForm" (ngSubmit)="registerUser(myForm.value)">
+    <p>Los campos marcados con * son obligatorios</p>
+    <ion-row>
+      <ion-input formControlName="nombre" type="text" placeholder="Nombre completo"></ion-input>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col col-6 class="colLeft">
+        <!-- <ion-input formControlName="anionacimiento" type="tel" maxlength="4" placeholder="Fecha nacimiento">
+        </ion-input> -->
+        <ion-label class="fechaNac" position="stacked">Fecha de nacimiento</ion-label>
+        <ion-datetime display-timezone="utc" formControlName="fechaNacimiento" placeholder="Seleccion una fecha">
+        </ion-datetime>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 class="colLeft">
+        <ion-input formControlName="cpostal" type="tel" maxlength="5" placeholder="Código Postal">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+
+      <ion-col col-6 class="colLeft">
+        <ion-select class="selector" [selectOptions]="generos" formControlName="genero" interface="popover"
+          placeholder="Género">
+          <ion-option class="option" *ngFor="let genero of generos" [value]="genero.id">
+            {{genero.valor}}
+          </ion-option>
+        </ion-select>
+      </ion-col>
+
+    </ion-row>
+
+
+    <hr>
+
+    <p>Tu correo electrónico será tu usuario y el medio por el que nos mantendremos en contacto contigo
+    </p>
+
+    <ion-row>
+      <ion-input formControlName="email" type="email" placeholder="Correo*" inputmode="email"></ion-input>
+    </ion-row>
+    <p class="error">{{mensajeCorreoValidacion}}</p>
+    <br>
+
+    <ion-row>
+      <ion-input formControlName="password" type="password" placeholder="Contraseña*" (blur)="showInfoPass(false);"
+        (focus)="showInfoPass(true);">
+      </ion-input>
+      <p *ngIf="infoPass">La contraseña debe contener al menos 8
+        caracteres, 1
+        número, 1 mayúscula, 1 minúscula y 1 caracter especial.</p>
+
+      <p *ngIf="this.myForm.controls.password.status == 'INVALID' && this.myForm.controls.password.value != '' && !infoPass"
+        class="error">La contraseña debe contener al menos 8
+        caracteres, 1
+        número, 1 mayúscula, 1 minúscula y 1 caracter especial.</p>
+
+    </ion-row>
+    <br>
+    <ion-row>
+      <ion-input formControlName="passwordConfirm" type="password" placeholder="Confirmar contraseña*"></ion-input>
+    </ion-row>
+    <p style="color:red !important" *ngIf="myForm.value.password!=myForm.value.passwordConfirm">Las contraseñas no
+      coinciden</p>
+
+    <div padding>
+      <button ion-button block type="submit"
+        [disabled]="!myForm.valid || myForm.value.password!=myForm.value.passwordConfirm ">Registrar</button>
+    </div>
+
+  </form>
+  <!-- <form [formGroup]="myForm" (ngSubmit)="registerUser(myForm.value)">
+    <p>Llena todos los campos para registrarte</p>
+    <ion-row>
+      <ion-input formControlName="nombre" type="text" placeholder="Nombre(s)"></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-input formControlName="apellidos" type="text" placeholder="Apellidos"></ion-input>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col col-7 class="colLeft">
+        <ion-input formControlName="nacionalidad" type="text" placeholder="Nacionalidad"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-input formControlName="anionacimiento" type="tel" maxlength="4" placeholder="Año nacimiento">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 class="colLeft">
+        <ion-input formControlName="cpostal" type="tel" maxlength="5" placeholder="Código Postal">
+        </ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-select class="selector" [selectOptions]="generos" formControlName="genero" interface="popover"
+          placeholder="Género">
+          <ion-option class="option" *ngFor="let genero of generos" [value]="genero">
+            {{genero.valor}}
+          </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-input formControlName="telefono" type="tel" placeholder="Teléfono (10 dígitos)" maxlength="10"></ion-input>
+    <hr>
+
+    <p>Tu correo electrónico será tu usuario y el medio por el que nos mantendremos en contacto contigo
+    </p>
+
+    <ion-row>
+      <ion-input formControlName="email" type="email" placeholder="Email" inputmode="email"></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-input formControlName="password" type="password" placeholder="Contraseña" (blur)="showInfoPass(false);"
+        (focus)="showInfoPass(true);">
+      </ion-input>
+      <p *ngIf="infoPass">La contraseña debe contener al menos 8 caracteres, 1
+        número, 1 mayúscula, 1 minúscula y 1 caracter especial.</p>
+    </ion-row>
+    <ion-row>
+      <ion-input formControlName="passwordConfirm" type="password" placeholder="Confirmar contraseña"></ion-input>
+    </ion-row>
+    <p style="color:red !important" *ngIf="myForm.value.password!=myForm.value.passwordConfirm">Las contraseñas no
+      coinciden</p>
+
+    <div padding>
+      <button ion-button block type="submit"
+        [disabled]="!myForm.valid || myForm.value.password!=myForm.value.passwordConfirm ">Registrar</button>
+    </div>
+
+  </form> -->
+  <!-- <form [formGroup]="myForm" (ngSubmit)="registerUser(myForm.value)">
+    <ion-card>
+      <ion-card-header style="height: 60px" (click)="expandItem(items[0])">
+        <ion-card-title>Nombre</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <app-expandable expandHeight="200px" [expanded]="items[0].expanded">
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Nombre:</ion-label>
+              <ion-input formControlName="nombre" type="text" placeholder="Nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Apellido Paterno:</ion-label>
+              <ion-input formControlName="paterno" type="text" placeholder="Apellido Paterno"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Apellido Materno:</ion-label>
+              <ion-input formControlName="materno" type="text" placeholder="Apellido Materno"></ion-input>
+            </ion-item>
+          </ion-list>
+        </app-expandable>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header style="height: 60px" (click)="expandItem(items[1])">
+        <ion-card-title>Personales</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <app-expandable expandHeight="300px" [expanded]="items[1].expanded">
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Nacionalidad:</ion-label>
+              <ion-input formControlName="nacionalidad" type="text" placeholder="Nacionalidad"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Año de nacimiento:</ion-label>
+              <ion-input formControlName="anionacimiento" type="number" placeholder="Año de nacimiento"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Teléfono:</ion-label>
+              <ion-input formControlName="telefono" type="text" placeholder="Teléfono"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Código Postal:</ion-label>
+              <ion-input formControlName="cpostal" type="text" placeholder="Código Postal"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Género</ion-label>
+              <ion-select [selectOptions]="generos">
+                <ion-option *ngFor="let genero of generos" [value]="genero">
+                  {{genero.valor}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </app-expandable>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header style="height: 60px" (click)="expandItem(items[2])">
+        <ion-card-title>Correo electrónico</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <app-expandable expandHeight="200px" [expanded]="items[2].expanded">
+          <ion-list>
+            <ion-item>
+              <ion-label stacked>Email:</ion-label>
+              <ion-input formControlName="email" type="email" placeholder="Email" inputmode="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Contraseña:</ion-label>
+              <ion-input formControlName="password" type="text" placeholder="Contraseña"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Confirmar contraseña:</ion-label>
+              <ion-input formControlName="passwordConfirm" type="text" placeholder="Confirmar contraseña">
+              </ion-input>
+            </ion-item>
+          </ion-list>
+        </app-expandable>
+      </ion-card-content>
+    </ion-card>
+
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Registrar</button>
+    </div>
+
+  </form> -->
+</ion-content>

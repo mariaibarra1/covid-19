@@ -1,0 +1,19 @@
+@import "../../theme/variables.scss";
+
+page-cuidate {
+    ion-icon {
+        &[class*="custom-"] {
+          mask-size: contain;
+          mask-position: 50% 50%;
+          mask-repeat: no-repeat;
+          //background: white !important;
+          width: 10em;
+          height: 10em;
+        }
+    
+        &[class*="custom-cuidate"] {
+          mask-image: url(../assets/icon/log_cuidate_mex.svg);
+        }
+    
+      }
+}

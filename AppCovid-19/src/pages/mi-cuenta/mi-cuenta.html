@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title color="primary">Mi Cuenta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <br><br><br>
+  <div *ngIf="usuario == null" text-center>
+    <br><br>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="usuario != null" text-center>
+    <ion-icon name="contact" id="userIcon" class="info"></ion-icon>
+    <br>
+    <h4>
+      {{usuario.nombre}}
+    </h4>
+    <p class="info">
+      {{usuario.email}}
+    </p>
+    <br>
+    <button ion-button block (click)="cerrarSesion()">Cerrar Sesión</button>
+  </div>
+</ion-content>

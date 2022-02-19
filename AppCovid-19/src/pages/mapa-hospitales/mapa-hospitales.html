@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title color="primary">Hospitales</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <google-maps></google-maps>
+  <ion-card id="cards" style="z-index: 10000; position: absolute !important;bottom: 0px; background: aliceblue;"
+    *ngIf="card">
+    <ion-card-header>
+      <ion-card-subtitle text-wrap>{{strNombre}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-6>
+          <a ion-button item-end class="botonNavegar" style="left: 10px;"
+            href="https://www.google.com/maps/dir/?api=1&destination={{strLatLng}}" target="_system">Navegar&nbsp;
+            <ion-icon name="navigate"></ion-icon></a>
+        </ion-col>
+        <ion-col col-6>
+          {{strTelefono}}
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+</ion-content>

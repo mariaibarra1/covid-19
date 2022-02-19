@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title color="primary">Noticia</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div text-center>
+    <h2>{{aviso.contenido}}</h2>
+
+    <div class="info fecha">{{aviso.fechaRegistro | date: "shortdate"}}</div>
+    <!-- <img [src]="aviso.imagen"> -->
+
+    <div>
+      {{aviso.subTemas}}
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title color="primary">Avisos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-refresher (ionRefresh)="refrescar($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="contenidoCargado == false" class="info" text-center>
+    <br><br><br>
+    <ion-spinner></ion-spinner>
+  </div>
+  <div *ngIf="contenidoCargado">
+    <div *ngIf="comentarios == null || comentarios.length == 0" class="info" text-center>
+      <br><br>
+      No hay avisos.
+    </div>
+
+    <ion-card *ngFor="let comentario of comentarios" padding (click)="pantallaDetalle(comentario)">
+      <ion-icon class="botonDetalle" name="md-arrow-dropright-circle" float-right></ion-icon>
+      {{comentario.comentario.length > 110? comentario.comentario.substring(0, 110) + '...': comentario.comentario}}
+      <br>
+      <p class="fecha info">{{comentario.fecha | date: (shortdate)}}</p>
+    </ion-card>
+  </div>
+</ion-content>

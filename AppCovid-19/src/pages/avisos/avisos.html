@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar text-center>
+    <ion-title text-center color="primary">Noticias</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-scroll scrollY="true" class="scrollConBotonEmergencia">
+
+    <ion-list>
+      <div *ngIf="lstAvisos?.length > 0">
+        <div *ngFor="let item of lstAvisos; let i = index">
+          <div *ngFor="let item of lstAvisos[i];"> </div>
+          <ion-card *ngFor="let item of lstAvisos[i];let iprima = index" href=#>
+            <ion-card-header>
+            </ion-card-header>
+            <ion-card-content text-wrap>
+              <ion-card-subtitle text-wrap><b>{{lstAvisos[i][iprima].contenido}}</b> </ion-card-subtitle>
+
+              <ion-row>
+
+                {{lstAvisos[i][iprima].subTemas.length >= 110? lstAvisos[i][iprima].subTemas.substring(0, 110) + '...': lstAvisos[i][iprima].subTemas}}
+
+              </ion-row>
+              <ion-row>
+                <ion-col col-8 class="info botonDetalle">
+                  {{lstAvisos[i][iprima].fechaRegistro | date: "shortdate"}}
+                </ion-col>
+                <ion-col col-4>
+                  <a item-end class="info botonDetalle" style="left: 10px;" (click)="irDetalle(lstAvisos[i][iprima])"
+                    target="_system">Continuar leyendo&nbsp;
+                  </a>
+                </ion-col>
+
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </div>
+
+      <div *ngIf="info == true " text-center class="info">
+        <br>
+        No se encontraron avisos.
+      </div>
+    </ion-list>
+
+  </ion-scroll>
+
+</ion-content>

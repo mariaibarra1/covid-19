@@ -1,0 +1,30 @@
+page-mis-notificaciones {
+
+    ion-icon{
+        zoom: 1.5;
+        margin-top: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    .noLeidas{
+        background-color: rgb(223, 240, 255);
+    }
+
+    ion-item{
+        word-wrap: break-word;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 0px;
+    }
+
+    .fecha{
+        font-size: 10px;
+    }
+
+    .item-inner{
+        margin-left: 10px !important;
+    }
+}
